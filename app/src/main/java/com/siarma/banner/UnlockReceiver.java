@@ -26,7 +26,7 @@ public class UnlockReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d("Receiver", "Broadcast received. Uptime: " + SystemClock.uptimeMillis());
-        if (startedTodayCount(context) < 3) {
+        if (PreferenceManager.getDefaultSharedPreferences(context).getBoolean("pending", false) && startedTodayCount(context) < 3) {
             final AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             final Calendar now = Calendar.getInstance();
             now.add(Calendar.MINUTE, 1);

@@ -40,12 +40,6 @@ public class BannerActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final AlarmManager am = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-        final Calendar now = Calendar.getInstance();
-        now.add(Calendar.MINUTE, 5);
-        final Intent acitivyIntent = new Intent(this, BannerActivity.class);
-        final PendingIntent pendingIntent = PendingIntent.getActivity(this.getApplicationContext(), 1, acitivyIntent, PendingIntent.FLAG_ONE_SHOT);
-        am.set(AlarmManager.RTC, now.getTimeInMillis(), pendingIntent);
         setContentView(R.layout.banner_layout);
 
         //this.getWindow().setAttributes(params);
